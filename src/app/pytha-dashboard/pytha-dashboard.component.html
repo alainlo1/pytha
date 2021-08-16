@@ -1,0 +1,61 @@
+<nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+            <h1 style="color: white;">triolet pythagorean</h1>
+            
+            <div class="d-flex">
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Ajouter Triolet </button>
+            </div>
+    </div>
+</nav>
+<table class="table mx-auto  col-6">
+    <thead class="" >
+        <tr>
+            <th class="col">Id</th>
+            <th class="col">Triolet</th>
+
+        </tr>
+    </thead>
+    
+    <tbody>
+        <tr *ngFor="let row of formuleData"> 
+            <td>{{row.id}}</td>
+            <td>{{row.formule}}</td>
+
+    
+            <td>
+                <button type="button" (click)="onEdit(row)" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Modifier</button>
+                <button type="button" (click)="deleteFormule(row)"  class="btn btn-danger mx-3">Supprimer</button>
+            </td>
+        </tr>
+    </tbody>
+    
+    </table>
+
+      <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Triolet Détails</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+            <form [formGroup]="formValue" >
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Triolet</label>
+                  <input type="text" formControlName="formule" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+              </form>
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" (click)="postFormuleDetails()"  class="btn btn-primary">Ajouter</button>
+          <button type="button" (click)="updateFormuleDetails()"  class="btn btn-primary">Modifier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
